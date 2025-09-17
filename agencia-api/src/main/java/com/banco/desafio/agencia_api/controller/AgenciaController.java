@@ -4,6 +4,9 @@ import com.banco.desafio.agencia_api.dto.AgenciaRequest;
 import com.banco.desafio.agencia_api.dto.DistanciaResponse;
 import com.banco.desafio.agencia_api.model.Agencia;
 import com.banco.desafio.agencia_api.service.AgenciaService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +23,7 @@ public class AgenciaController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<Agencia> cadastrar(@RequestBody AgenciaRequest request) {
+    public ResponseEntity<Agencia> cadastrar(@Valid @RequestBody AgenciaRequest request) {
         Agencia agencia = service.cadastrar(request);
         return ResponseEntity.ok(agencia);
     }
