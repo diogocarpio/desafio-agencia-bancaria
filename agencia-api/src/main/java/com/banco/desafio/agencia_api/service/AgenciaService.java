@@ -3,8 +3,10 @@ package com.banco.desafio.agencia_api.service;
 import org.springframework.stereotype.Service;
 
 import com.banco.desafio.agencia_api.dto.AgenciaRequest;
+import com.banco.desafio.agencia_api.dto.DistanciaResponse;
 import com.banco.desafio.agencia_api.model.Agencia;
 import com.banco.desafio.agencia_api.repository.AgenciaRepository;
+import com.banco.desafio.agencia_api.util.DistanciaUtil;
 
 import java.util.List;
 
@@ -28,4 +30,16 @@ public class AgenciaService {
     public List<Agencia> listarTodas() {
         return repository.findAll();
     }
+
+    public List<DistanciaResponse> calcularDistancias(double posX, double posY) {
+    List<Agencia> agencias = repository.findAll();
+    return agencias.stream()
+            .map(agencia -> new DistanciaResponse(
+                    "AGENCIA_" + agencia.getId(),
+                    DistanciaUtil.calcularDistancia(posX, posY, agencia.getPosX(), agencia.getPosY())
+            ))
+            .sorted((d1, d2) -> Double.compare(d1.getDistancia(), d2.getDistancia()))
+            .toList();
+    }
+
 }

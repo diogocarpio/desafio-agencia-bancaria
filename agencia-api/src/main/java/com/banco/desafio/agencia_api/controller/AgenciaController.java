@@ -1,6 +1,7 @@
 package com.banco.desafio.agencia_api.controller;
 
 import com.banco.desafio.agencia_api.dto.AgenciaRequest;
+import com.banco.desafio.agencia_api.dto.DistanciaResponse;
 import com.banco.desafio.agencia_api.model.Agencia;
 import com.banco.desafio.agencia_api.service.AgenciaService;
 import org.springframework.http.ResponseEntity;
@@ -27,5 +28,12 @@ public class AgenciaController {
     @GetMapping("/agencias")
     public ResponseEntity<List<Agencia>> listarTodas() {
         return ResponseEntity.ok(service.listarTodas());
+    }
+
+    @GetMapping("/distancia")
+    public ResponseEntity<List<DistanciaResponse>> calcularDistancia(
+            @RequestParam double posX,
+            @RequestParam double posY) {
+        return ResponseEntity.ok(service.calcularDistancias(posX, posY));
     }
 }
