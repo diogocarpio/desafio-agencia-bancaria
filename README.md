@@ -1,5 +1,3 @@
-Code Challenge de Agência Bancaria
-
 # API de Agências - Desafio Técnico
 
 Este projeto foi desenvolvido como parte de um **teste técnico** para uma empresa Bancaria.  
@@ -22,8 +20,9 @@ A aplicação consiste em uma **API REST** em **Java 21 + Spring Boot 3** para:
 - **H2 Database (em memória)**
 - **Lombok**
 - **Spring DevTools**
+- **Bean Validation**
 - **Springdoc OpenAPI (Swagger)**
-- **JUnit 5 + Mockito** (para testes)
+- **JUnit 5 + Mockito (para testes)**
 
 ---
 
@@ -31,19 +30,20 @@ A aplicação consiste em uma **API REST** em **Java 21 + Spring Boot 3** para:
 
 ```bash
 desafio-agencia-bancaria/
+├── .github/workflows/ci.yml       # Integração Contínua com GitHub Actions
 ├── src/
 │   ├── main/
 │   │   ├── java/com/santander/desafio/agenciaapi/
 │   │   │   ├── controller/        # Controllers (endpoints REST)
 │   │   │   ├── dto/               # Objetos de transferência de dados (requests/responses)
+│   │   │   ├── exception/         # Mensagens de erros configuradas para os enpoints
 │   │   │   ├── model/             # Entidades JPA
 │   │   │   ├── repository/        # Interfaces de persistência
 │   │   │   ├── service/           # Regras de negócio
 │   │   │   ├── util/              # Classes utilitárias (ex: cálculo de distância)
 │   │   │   └── config/            # Configurações (Swagger, etc.)
 │   │   └── resources/
-│   │       ├── application.yml    # Configurações do projeto
-│   │       └── data.sql           # (opcional) Dados iniciais
+│   │       ├── application.properties   # Configurações do projeto
 │   └── test/
 │       └── java/com/santander/desafio/agenciaapi/
 │           └── service/           # Testes unitários de serviços

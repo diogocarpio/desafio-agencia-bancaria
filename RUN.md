@@ -1,13 +1,13 @@
-# ▶️ Guia de Execução - API de Agências
+# Guia de Execução - API de Agências
 
 Este documento explica como rodar o projeto **desafio-agencia-bancaria** localmente e como acessar seus endpoints.
 
 ---
 
 ## Pré-requisitos
-- [Java 21](https://adoptium.net/) ☕
-- [Maven 3.9+](https://maven.apache.org/) 🛠️
-- IDE (VS Code, IntelliJ, Eclipse) ou terminal
+- [Java 21]
+- [Maven 3.9+]
+- IDE (VS Code, IntelliJ, Eclipse)
 
 ---
 
@@ -30,4 +30,3 @@ Password: (vazio)
 
 ```bash
 git clone https://github.com/diogocarpio/desafio-agencia-bancaria.git
-cd desafio-agencia-bancaria
